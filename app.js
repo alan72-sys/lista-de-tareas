@@ -28,15 +28,19 @@ function renderTasks() {
         const li = document.createElement('li');
         li.className = task.completed ? 'completed' : '';
         li.innerHTML = `
-            <span>${task.text}</span>
-            <div>
-                <button class="edit-btn" onclick="editTask(${task.id})">✎</button>
-                <button class="complete-btn" onclick="toggleComplete(${task.id})">${task.completed ? '✓' : ''}</button>
-            </div>
-        `;
+    <span>${task.text}</span>
+    <div>
+        <button class="edit-btn" onclick="editTask(${task.id})">✎</button>
+        <button class="delete-btn" onclick="deleteTask(${task.id})">🗑</button>
+        <button class="complete-btn" onclick="toggleComplete(${task.id})">${task.completed ? '✓' : ''}</button>
+    </div>
+`;
         taskList.appendChild(li);
     });
 }
+
+
+
 
 // Función para agregar una nueva tarea
 function addTask() {
@@ -84,6 +88,13 @@ function editTask(id) {
     }
 }
 
+
+
+function deleteTask(id) {
+    tasks = tasks.filter(task => task.id !== id);
+    saveTasks();
+    renderTasks();
+}
 
 
 
