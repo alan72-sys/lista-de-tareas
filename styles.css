@@ -103,3 +103,19 @@ h1 {
 .complete-btn:hover {
     background: #e8f5e9;
 }
+
+
+/* Boton de editar */
+.edit-btn {
+    background: #9523f8;
+    color: black;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 5px;
+}
+
+.edit-btn:hover {
+    background: #37096f;
+}
