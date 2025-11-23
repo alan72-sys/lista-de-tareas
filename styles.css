@@ -92,11 +92,11 @@ h1 {
 .complete-btn {
     width: 24px;
     height: 24px;
-    background: white;
-    border: 2px solid #28a745;
+    background: rgb(243, 243, 243);
+    border: 2px solid #000000;
     border-radius: 5px;
     cursor: pointer;
-    color: #28a745;
+    color: #ffc107;
     font-size: 16px;
 }
 
@@ -107,7 +107,7 @@ h1 {
 
 /* Boton de editar */
 .edit-btn {
-    background: #9523f8;
+    background: #ffc107;
     color: black;
     border: none;
     padding: 5px 10px;
@@ -124,7 +124,7 @@ h1 {
 
 /* Boton de eliminar */
 .delete-btn {
-    background: #dc3545;
+    background: #000000;
     color: white;
     border: none;
     padding: 5px 10px;
