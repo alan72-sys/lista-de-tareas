@@ -19,6 +19,7 @@ function loadTasks() {
     }
 }
 
+
 // Función para mostrar las tareas en pantalla
 function renderTasks() {
     taskList.innerHTML = '';
@@ -28,7 +29,10 @@ function renderTasks() {
         li.className = task.completed ? 'completed' : '';
         li.innerHTML = `
             <span>${task.text}</span>
-            <button class="complete-btn" onclick="toggleComplete(${task.id})">${task.completed ? '✓' : ''}</button>
+            <div>
+                <button class="edit-btn" onclick="editTask(${task.id})">✎</button>
+                <button class="complete-btn" onclick="toggleComplete(${task.id})">${task.completed ? '✓' : ''}</button>
+            </div>
         `;
         taskList.appendChild(li);
     });
@@ -66,6 +70,25 @@ function toggleComplete(id) {
     saveTasks();
     renderTasks();
 }
+
+
+// Función para editar tarea
+function editTask(id) {
+    const task = tasks.find(t => t.id === id);
+    const newText = prompt('Editar tarea:', task.text);
+    
+    if (newText !== null && newText.trim() !== '') {
+        task.text = newText.trim();
+        saveTasks();
+        renderTasks();
+    }
+}
+
+
+
+
+
+
 
 // Event Listeners
 addBtn.addEventListener('click', addTask);
