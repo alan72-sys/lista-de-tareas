@@ -25,8 +25,10 @@ function renderTasks() {
     
     tasks.forEach((task, index) => {
         const li = document.createElement('li');
+        li.className = task.completed ? 'completed' : '';
         li.innerHTML = `
             <span>${task.text}</span>
+            <button class="complete-btn" onclick="toggleComplete(${task.id})">${task.completed ? '✓' : ''}</button>
         `;
         taskList.appendChild(li);
     });
@@ -53,6 +55,18 @@ function addTask() {
     taskInput.value = '';
 }
 
+// Función para marcar tarea como completada
+function toggleComplete(id) {
+    tasks = tasks.map(task => {
+        if (task.id === id) {
+            task.completed = !task.completed;
+        }
+        return task;
+    });
+    saveTasks();
+    renderTasks();
+}
+
 // Event Listeners
 addBtn.addEventListener('click', addTask);
 
@@ -65,3 +79,4 @@ taskInput.addEventListener('keypress', function(e) {
 // Cargar tareas al iniciar
 loadTasks();
 renderTasks();
+
